@@ -1,0 +1,57 @@
+.sv-input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.sv-mic-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #666;
+  z-index: 10000;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.sv-mic-button:hover {
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.sv-mic-button.active {
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.15);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}
+
+input[type="text"],
+input[type="search"],
+textarea {
+  padding-right: 36px !important;
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Simply Voice Options</title>
+  <link rel="stylesheet" href="assets/styles/options.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" x2="12" y1="19" y2="22"/>
+        </svg>
+      </div>
+      <div class="title-group">
+        <h1>Simply Voice Options</h1>
+        <p>Customize your voice input experience</p>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>Recognition Settings</h2>
+      <div class="option-group">
+        <div class="option">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="spellCheck" checked>
+            <div>
+              <label class="option-label" for="spellCheck">Spell Checking</label>
+              <p class="option-description">Automatically correct common spelling mistakes</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="option">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="grammarCheck" checked>
+            <div>
+              <label class="option-label" for="grammarCheck">Grammar Checking</label>
+              <p class="option-description">Suggest grammar improvements in real-time</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="option">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="recordAudio">
+            <div>
+              <label class="option-label" for="recordAudio">Save Recordings</label>
+              <p class="option-description">Save voice recordings to your downloads folder</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="option">
+          <div class="number-input">
+            <div>
+              <label class="option-label" for="silenceTimeout">Silence Timeout</label>
+              <p class="option-description">Stop recording after silence (in seconds)</p>
+            </div>
+            <input type="number" id="silenceTimeout" min="1" max="30" value="6">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="reset">Reset Defaults</button>
+      <button id="save" class="primary">Save Changes</button>
+    </div>
+  </div>
+  <script src="assets/scripts/options.js"></script>
+</body>
+</html>

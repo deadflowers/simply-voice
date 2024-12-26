@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simply Voice - Enable voice input for text fields</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: rgba(37, 99, 235, 0.1);
+      --text: #1a1a1a;
+      --text-light: #666;
+      --bg: #ffffff;
+      --bg-light: #f8fafc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      display: flex;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text {
+      max-width: 540px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      padding: 16px;
+      background: var(--primary-light);
+      border-radius: 16px;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--text) 0%, #4b5563 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-text p {
+      font-size: 20px;
+      color: var(--text-light);
+      margin-bottom: 32px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px 
+      padding: 16px 32px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .cta:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .browser-mockup {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      transform: perspective(1000px) rotateY(-5deg);
+    }
+
+    .browser-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #e5e7eb;
+    }
+
+    .browser-content {
+      position: relative;
+      border: 2px solid #f1f5f9;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .mic-button {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+    }
+
+    .features {
+      padding: 100px 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 32px;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 20px;
+      padding: 12px;
+      background: var(--primary-light);
+      border-radius: 12px;
+      color: var(--primary);
+    }
+
+    .feature h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .feature p {
+      color: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .logo {
+        margin: 0 auto 24px;
+      }
+
+      .hero-text {
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .hero-text p {
+        font-size: 18px;
+      }
+
+      .browser-mockup {
+        transform: none;
+        margin-top: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" x2="12" y1="19" y2="22"/>
+            </svg>
+          </div>
+          <h1>Voice Input for Every Text Field</h1>
+          <p>Transform any text input into a voice-enabled field. Simply click the microphone icon or use keyboard shortcuts to start speaking. It's that easy.</p>
+          <a href="https://chrome.google.com/webstore/detail/simply-voice" class="cta">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
+              <path d="M21 3v5h-5"/>
+            </svg>
+            Add to Chrome
+          </a>
+        </div>
+        <div class="hero-image">
+          <div class="browser-mockup">
+            <div class="browser-header">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+            <div class="browser-content">
+              <input type="text" style="width: 100%; padding: 12px; border: none; background: #f8fafc; border-radius: 6px;" placeholder="Click the mic to start speaking...">
+              <div class="mic-button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                  <line x1="12" x2="12" y1="19" y2="22"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" x2="12" y1="19" y2="22"/>
+            </svg>
+          </div>
+          <h3>Works Everywhere</h3>
+          <p>Use voice input in any text field, including the Chrome URL bar. Perfect for quick searches and navigation.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M2 12h20"/>
+            </svg>
+          </div>
+          <h3>Keyboard Shortcuts</h3>
+          <p>Quick access with Ctrl+Shift+V (Cmd+Shift+V on Mac). Start and stop recording without touching your mouse.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </div>
+          <h3>Save Recordings</h3>
+          <p>Optionally save your voice recordings for later use. Perfect for keeping track of important notes and ideas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

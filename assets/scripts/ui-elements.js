@@ -1,4 +1,4 @@
-const UIElements = (function() {
+window.UIElements = (function() {
   function createMicButton() {
     const button = document.createElement('button');
     button.className = 'sv-mic-button';

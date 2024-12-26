@@ -1,6 +1,6 @@
 (function() {
   // Initialize voice input functionality
-  const voiceInput = new VoiceInput();
+  const voiceInput = new window.VoiceInputHandler();
 
   // Setup for existing inputs
   document.querySelectorAll('input[type="text"], input[type="search"], textarea')

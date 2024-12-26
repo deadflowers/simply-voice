@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle tutorial button click
   document.getElementById('tutorial').addEventListener('click', () => {
     chrome.tabs.create({
-      url: 'https://rkooyenga.github.io/simplyvoice/'
+      url: 'https://rkooyenga.github.io/simplyvoice/
     });
   });
 });
